@@ -1,29 +1,32 @@
-// 행렬의 덧셈
+// JadenCase 문자열 만들기
 
 // 문제 설명
-// 행렬의 덧셈은 행과 열의 크기가 같은 두 행렬의 같은 행, 같은 열의 값을 서로 더한 결과가 됩니다. 2개의 행렬 arr1과 arr2를 입력받아, 행렬 덧셈의 결과를 반환하는 함수, solution을 완성해주세요.
+// JadenCase란 모든 단어의 첫 문자가 대문자이고, 그 외의 알파벳은 소문자인 문자열입니다. 단, 첫 문자가 알파벳이 아닐 때에는 이어지는 알파벳은 소문자로 쓰면 됩니다. (첫 번째 입출력 예 참고)
+// 문자열 s가 주어졌을 때, s를 JadenCase로 바꾼 문자열을 리턴하는 함수, solution을 완성해주세요.
 
 // 제한 조건
-// 행렬 arr1, arr2의 행과 열의 길이는 500을 넘지 않습니다.
+// s는 길이 1 이상 200 이하인 문자열입니다.
+// s는 알파벳과 숫자, 공백문자(" ")로 이루어져 있습니다.
+// 숫자는 단어의 첫 문자로만 나옵니다.
+// 숫자로만 이루어진 단어는 없습니다.
+// 공백문자가 연속해서 나올 수 있습니다.
 
 
-function solution(a, b) {
-    // 윤년은 2월이 29일까지 있고, 1년이 366일이다.
-    // 4, 100, 400으로 나누어지는 년도는 윤년이다.
-    const weekToDay = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
-    const leapYearMonths = [31,29,31,30,31,30,31,31,30,31,30,31]; 
-    let day = b+4; // 1월 1일은 FRI, b가 1일 때 인덱스로는 5가 되어야한다.
-    // 1월은 이전 월의 일수를 더하지 않음으로 a-1 조건으로 해야한다.
-    for(let i = 0; i < a-1; ++i){
-        day += leapYearMonths[i];
-      //day b+4
-      //
-    }
-    return weekToDay[day%7];
+function solution(s) {
+  s = s.toLowerCase()
+  var answer = s.split(" ").map(s => {
+      // s를 공백 기준으로 배열로 split
+      let arr = s.split("")
+      // 새로운 배열 선언 후 하나하나 쪼개기
+      if(arr[0] != null) arr[0] = arr[0].toUpperCase();
+      return arr.join(''); 
+  }).join(' '); 
+  return answer;
 }
 
 
+
 // 입출력 예
-// arr1	arr2	return
-// [[1,2],[2,3]]	[[3,4],[5,6]]	[[4,6],[7,9]]
-// [[1],[2]]	[[3],[4]]	[[4],[6]]
+// s	return
+// "3people unFollowed me"	"3people Unfollowed Me"
+// "for the last week"	"For The Last Week"
