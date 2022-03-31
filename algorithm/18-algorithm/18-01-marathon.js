@@ -11,8 +11,28 @@
 // 참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.
 // 참가자 중에는 동명이인이 있을 수 있습니다.
 
+function solution(participant, completion) {
+  // ["leo", "kiki", "eden"]	["eden", "kiki"]	"leo"
+  const map = new Map();
+  // 맵 객체를 선언
+  for (let i = 0; i < participant.length; i++) {
+    // participant 길이만큼 반복
+    let a = participant[i],
+      // a 변수에 partucipant[i] "leo"
+      b = completion[i];
+    // b 변수 completion[i]  "eden"
 
+    map.set(a, (map.get(a) || 0) + 1);
+    // map 객체에 key === ["leo"] , value는 map.get(a)"leo" || 0) + 1)
+    map.set(b, (map.get(b) || 0) - 1);
+  }
 
+  for (let [k, v] of map) {
+    if (v > 0) return k;
+  }
+
+  return "nothing";
+}
 
 // 입출력 예
 // participant	completion	return
