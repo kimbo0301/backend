@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Starbucks {
+  name: String!
+  price: Float!
+  serving: Float!
+  fat: Float!
+  protein: Float!
+  natrium: Float!
+  sugars: Float!
+  caffeine: Float!
+}
+
+type Query {
+  fetchBoards: [Starbucks!]!
+}
+
+type Mutation {
+  createBoard(createstarbucksInput: CreateStarbucksInput!): String!
+}
+
+input CreateStarbucksInput {
+  name: String!
+  price: Float!
+  serving: Float!
+  fat: Float!
+  protein: Float!
+  natrium: Float!
+  sugars: Float!
+  caffeine: Float!
+}
