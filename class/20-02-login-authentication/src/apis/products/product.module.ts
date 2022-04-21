@@ -7,10 +7,13 @@ import { ProductResolver } from './product.resolver';
 import { ProductService } from './product.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([
-    Product, //
-    ProductSaleslocation, //
-    ProductTag])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Product, //
+      ProductSaleslocation,
+      ProductTag,
+    ]),
+  ],
   providers: [
     ProductResolver, //
     ProductService,

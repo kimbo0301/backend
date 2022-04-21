@@ -24,3 +24,5 @@ export class FileResolver {
     return this.fileService.upload({ files });
   }
 }
+
+// 1 . 파일이 어떻게 들어오는지 확인

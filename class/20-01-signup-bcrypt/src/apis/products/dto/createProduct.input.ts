@@ -18,6 +18,6 @@ export class CreateProductInput {
   @Field(() => String)
   productCategoryId: string;
 
-  @Field(() => [String]) // graphQl 배열 선언
-  productTags: string[] //typescript 배열 선언 
+  @Field(() => [String])
+  productTags: string[]
 }

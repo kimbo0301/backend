@@ -19,7 +19,7 @@ export class ProductService {
     ) {}
     async findAll() {
         const products = await this.productRepository.find({
-            relations: ['productimage', 'rankingid'],
+            relations: ['productimage', 'ranking'],
             withDeleted: true,
         });
         return products;
@@ -29,7 +29,7 @@ export class ProductService {
         const product = await this.productRepository.findOne({
             where: { id: productId },
             withDeleted: true,
-            relations: ['productimage', 'rankingid'],
+            relations: ['productimage', 'ranking'],
         });
         return product;
     }

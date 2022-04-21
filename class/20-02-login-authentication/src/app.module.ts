@@ -26,7 +26,7 @@ import { AuthModule } from './apis/auth/auth.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '0000',
+      password: '12345678',
       database: 'myproject02',
       entities: [__dirname + '/apis/**/*.entity.*'],
       synchronize: true,

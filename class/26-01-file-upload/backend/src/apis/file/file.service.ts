@@ -17,9 +17,10 @@ export class FileService {
       projectId: 'green-chalice-347705',
     });
 
+    console.log(storage);
     // 일단 먼저 파일을 다 받기
     const waitedFiles = await Promise.all(files);
-
+    console.log(waitedFiles);
     const results = await Promise.all(
       waitedFiles.map((el) => {
         return new Promise((resolve, reject) => {
