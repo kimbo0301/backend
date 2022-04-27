@@ -5,7 +5,7 @@
     {
       "properties": {
         "name": {
-          "type": "text"
+          "type": "my_ngram_analyzer"
         },
         "description": {
           "type": "text",
