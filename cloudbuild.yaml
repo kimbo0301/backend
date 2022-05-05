@@ -5,7 +5,7 @@ steps:
     # 띄어쓰기를 기준으로 1개씩 끊어서 사용
     args:
       - -f
-      - class/deploy-with-docker/backend/docker-compose.pord.yaml
+      - class/deploy-with-docker/backend/docker-compose.prod.yaml
       - build
 
   # docker-compose -f docker-compose.prod.yaml push
@@ -24,7 +24,7 @@ steps:
       - set
       - image
       - deployment/my-backend-02
-      - my-backend02-sha256-1=asia.gcr.io/extreme-zephyr-347902/my-backend02:9
+      - my-backend02-sha256-1=asia.gcr.io/extreme-zephyr-347902/my-backend02:10
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
       - CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-02-1
