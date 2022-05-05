@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   my-backend:
-    image: asia.gcr.io/extreme-zephyr-347902/my-backend02:8
+    image: asia.gcr.io/extreme-zephyr-347902/my-backend02:9
     build:
       context: .
       dockerfile: Dockerfile

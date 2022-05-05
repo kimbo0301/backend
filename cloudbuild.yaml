@@ -24,7 +24,7 @@ steps:
       - set
       - image
       - deployment/my-backend-02
-      - my-backend02-sha256-1=asia.gcr.io/extreme-zephyr-347902/my-backend02:8
+      - my-backend02-sha256-1=asia.gcr.io/extreme-zephyr-347902/my-backend02:9
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
       - CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-02-1
