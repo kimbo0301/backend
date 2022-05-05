@@ -1,8 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Storage } from '@google-cloud/storage';
 import { FileUpload } from 'graphql-upload';
-import { config } from 'dotenv';
-config();
 // 스토리지 서비스에서 url을 받아옴
 
 interface IFile {
@@ -15,8 +13,8 @@ export class FileService {
         // 구글 클라우드 플랫폼에서 스토리지 라이브러리가 있음
         // @google-cloud/storage
         const storage = new Storage({
-            keyFilename: process.env.STORAGE_KEY_FILENAME,
-            projectId: process.env.STORAGE_PROJECT_ID,
+            keyFilename: '/my-secret/gcp-file-storage.json',
+            projectId: "extreme-zephyr-347902",
         }).bucket(`mainproject_boin`);
 
         console.log(storage);

@@ -1,0 +1,30 @@
+steps:
+  # docker-compose -f docker-compose.prod.yaml build
+  # 1단계  이걸 사용해서 이 명령을 실행
+  - name: docker/compose:1.29.0
+    # 띄어쓰기를 기준으로 1개씩 끊어서 사용
+    args:
+      - -f
+      - class/deploy-with-docker/backend/docker-compose.pord.yaml
+      - build
+
+  # docker-compose -f docker-compose.prod.yaml push
+  # 2단계
+  - name: docker/compose:1.29.0
+    args:
+      - -f
+      - class/deploy-with-docker/backend/docker-compose.prod.yaml
+      - push
+
+  # 3단계
+  # kubectl set image deployment/my-backend-02  my-backend02-sha256-1=asia.gcr.io/extreme-zephyr-347902/my-backend02:8
+  #     구글에서 제공하는 kubectl 명령을 다운받음
+  - name: "gcr.io/cloud-builders/kubectl"
+    args:
+      - set
+      - image
+      - deployment/my-backend-02
+      - my-backend02-sha256-1=asia.gcr.io/extreme-zephyr-347902/my-backend02:8
+    env:
+      - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
+      - CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-02-1

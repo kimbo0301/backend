@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   my-backend:
+    image: asia.gcr.io/extreme-zephyr-347902/my-backend02:8
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,8 +10,8 @@ services:
     #   - ./src:/myfolder/src 배포 환경에서 소스코드가 바뀐다고 리프레쉬되면 안되기 때문에 volumes는 배포 환경 때 주석주석
     # docker-compose (-f docker-compose.yaml) 생략 되어 있었음  진작말해주지 배포 용은 build
     # docker-compose -f docker-compose.prod.yaml build 배포용
-    env_file:
-      - ./.env.prod
+    # env_file:
+    #   - ./.env.prod
     ports:
       - 3000:3000
 
